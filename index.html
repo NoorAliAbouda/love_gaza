@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Gaza</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="date">
+            <div class="head">
+                <h1></h1>
+            </div>
+            <div class="d">
+                <h1>اللهم انصر غزة ياارب العالمين</h1>
+                <h2><span id="now"></span>  /<span>تاريخ اليوم</span></h2>
+            </div>
+            <div class="day">
+                <h1 id="ar"></h1>
+                <h2 id="en"></h2>
+            </div>
+            <h1 style="    position: absolute;
+            bottom: 0;">كتايب القسام</h1>
+        </div>
+
+        <div class="img">
+            <img src="logo.jpeg" alt="" srcset="">
+            <form action="" onsubmit="return false">
+                <label for="name">الاسم</label>
+                <input type="text" name="name" id="name">
+
+                <label for="age">السن</label>
+                <input type="number" name="age" id="age">
+
+                <div>
+
+                    <label for="male">ذكر</label>
+                    <input type="radio" name="g" id="male">
+
+                
+                    <label for="fmale">انثي</label>
+                    <input type="radio" name="g" id="fmale">
+               </div>
+               <textarea name="message" placeholder="ادخل رسالتك هنا" id="message"></textarea>
+               <button id="submit">أرسال</button>
+
+            </form>
+        </div>
+        <audio id="m" src=""></audio>
+
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        let mz = document.querySelector("#m");
+        console.log(mz);
+        mz.src = localStorage.getItem("gaza");
+
+        document.querySelector(".container").addEventListener("input", () => {
+            mz.play();
+        })
+
+        
+        let dateN = new Date().toLocaleDateString();
+        document.querySelector("#now").textContent = dateN
+
+        let day = 6;
+        console.log(day)
+        switch(day) {
+            case 1:
+                document.querySelector("#ar").textContent = "الاحد";
+                document.querySelector("#en").textContent = "sunday";
+                break;
+            case 2:
+                document.querySelector("#ar").textContent = "الأثنين";
+                document.querySelector("#en").textContent = "monday";
+                break;
+            case 3:
+                document.querySelector("#ar").textContent = "الثلاثاء";
+                document.querySelector("#en").textContent = "tusday";
+                break;
+            case 4: 
+                document.querySelector("#ar").textContent = "الأربعاء";
+                document.querySelector("#en").textContent = "wedensday";
+                break;
+            case 5 :
+                document.querySelector("#ar").textContent = "الخميس";
+                document.querySelector("#en").textContent = "thursday";
+                break;
+            case 6 : 
+                document.querySelector("#ar").textContent = "الجمعة";
+                document.querySelector("#en").textContent = "friday";
+                break;
+            case 7 : 
+            document.querySelector("#ar").textContent = "السبت";
+            document.querySelector("#en").textContent = "saturday";
+        }
+    </script>
+</body>
+</html>

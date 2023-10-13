@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Gaza</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="date">
+            <div class="head">
+                <h1></h1>
+            </div>
+            <div class="d">
+                <h1>اللهم انصر غزة ياارب العالمين</h1>
+                <h2><span id="now"></span> /<span>تاريخ اليوم</span></h2>
+            </div>
+            <div class="day">
+                <h1 id="ar"></h1>
+                <h2 id="en" style="    text-transform: capitalize;"></h2>
+            </div>
+            <h1 style="    position: absolute;
+            bottom: 0;">كتايب القسام</h1>
+        </div>
+
+        <div class="img">
+            <h2 id="des"></h2>
+            <img src="" alt="" srcset="" id="cover">
+            <h1 class="name"></h1>
+            <div class="img2">
+                <h2 class="message"></h2>
+                <img src="me.png" alt="" srcset="">
+            </div>
+        </div>
+        <audio id="m" src=""></audio>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        if(localStorage.getItem("male") == "true") {
+            localStorage.setItem("img", arrImg[Math.floor(Math.random() * arrImg.length)]);
+            cover.src = localStorage.getItem("img");
+        }
+        else {
+            localStorage.setItem("img", arrImg2[Math.floor(Math.random() * arrImg2.length)]);
+            cover.src = localStorage.getItem("img");
+        }
+        let title = document.querySelector(".name");
+        title.textContent = localStorage.getItem("name");
+
+   
+        let mess = document.querySelector(".message");
+        mess.textContent = localStorage.getItem("message");
+
+        let dateN = new Date().toLocaleDateString();
+        document.querySelector("#now").textContent = dateN
+
+        let day = 6;
+        console.log(day)
+        switch(day) {
+            case 1:
+                document.querySelector("#ar").textContent = "الاحد";
+                document.querySelector("#en").textContent = "sunday";
+                break;
+            case 2:
+                document.querySelector("#ar").textContent = "الأثنين";
+                document.querySelector("#en").textContent = "monday";
+                break;
+            case 3:
+                document.querySelector("#ar").textContent = "الثلاثاء";
+                document.querySelector("#en").textContent = "tusday";
+                break;
+            case 4: 
+                document.querySelector("#ar").textContent = "الأربعاء";
+                document.querySelector("#en").textContent = "wedensday";
+                break;
+            case 5 :
+                document.querySelector("#ar").textContent = "الخميس";
+                document.querySelector("#en").textContent = "thursday";
+                break;
+            case 6 : 
+                document.querySelector("#ar").textContent = "الجمعة";
+                document.querySelector("#en").textContent = "friday";
+                break;
+            case 7 : 
+            document.querySelector("#ar").textContent = "السبت";
+            document.querySelector("#en").textContent = "saturday";
+        }
+        let mz = document.querySelector("#m");
+        console.log(mz);
+        mz.src = localStorage.getItem("gaza");
+
+        document.querySelector(".container").addEventListener("click", () => {
+            mz.play();
+        }) 
+        document.querySelector("#des").innerHTML = `أنا اسمي ${localStorage.getItem("name")} ,وسني ${localStorage.getItem("age")} سنة <br>
+        اهوي القتال معكم افتحوا لنا الحدود <img style="width: 10%" src="2.jpeg">`
+    </script>
+</body>
+</html>
